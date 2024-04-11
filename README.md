@@ -1,10 +1,6 @@
 # VisualPMusic
 
 ## My Environment
-- MacBook Air M1
-  - RAM 8GB
-  - Google Chrome ver.: 117.0.5938.149（Official Build） （arm64）
-
 - MacBook Air M2
   - RAM 16GB
   - Google Chrome ver.: 121.0.6167.139（Official Build） （arm64）
