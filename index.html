@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <title>PMusic</title>
+    <script src="https://cdn.jsdelivr.net/npm/blockly@1.0.0/blockly_compressed.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/blockly@1.0.0/blocks_compressed.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/blockly@1.0.0/msg/js/en.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/blockly@1.0.0/javascript_compressed.min.js"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="node_modules/@blockly/field-slider/dist/index.js"></script>
+  </head>
+
+  <body>
+
+  <!-- 言語選択ポップアップ -->
+  <div class="bg_onetime_popup" id="languagePopup">
+    <div class="onetime_popup">
+      <div class="onetime_popup_title">
+        <span class="onetime_popup_title_close" id="popupCloseButton"></span>
+        <span>言語選択 (Choose Language)</span>
+      </div>
+      <div class="onetime_popup_content">
+        <button class="languageButton" onclick="setLanguage('ja'); closePopup();">日本語</button>
+        <button class="languageButton" onclick="setLanguage('en'); closePopup();">English</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('load', function () {
+      const body = document.querySelector('body');
+      const languagePopup = document.getElementById('languagePopup');
+      body.classList.add('open_popup');
+      // ポップアップ内のクリックイベント伝播を防ぐ
+      languagePopup.querySelector('.onetime_popup').addEventListener('click', function (e) {
+        e.stopPropagation();
+        console.log('Popup clicked');
+      });
+    }, false);
+  </script>
+  
+
+
+  <div id="content" style="display:flex;">
+    <div>
+      <!-- 2タブ構成 -->
+      <div class="tab-wrap">
+        <input id="TAB-01" type="radio" name="TAB" class="tab-switch" checked="checked" /><label class="tab-label" for="TAB-01">block result</label>
+        <div class="tab-content">
+          <!-- コード反映欄 -->
+          <div id="code" style="width: 700px; padding: 5px; border: 2px solid black;"><pre/></div>
+        </div>
+        <input id="TAB-02" type="radio" name="TAB" class="tab-switch" /><label class="tab-label" for="TAB-02">write script</label>
+        <div class="tab-content">
+          <!-- スクリプト記述欄 -->
+          <div id="codeEditor" class="tabcontent">
+            <textarea id="codeInput" style="width: 100%;"></textarea>
+          </div>
+        </div>
+      </div>
+      
+      <button class="btn_code" id="Save" onclick="saveBlocks();">Save</button> <button class="btn_code" id="Load" onclick="loadBlocks();">Load</button> 
+    </div>
+    <!-- ブロック配置欄 -->
+    <div id="blocklyDiv" style="height: 650px; width: 1150px; padding: 5px"></div>
+  </div>
+
+  <!-- 説明欄 -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/marked@3.0.7/marked.min.js"></script> -->
+  <script src="./marked-3.0.7/marked.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+
+  <xml id="toolbox" style="display: none">
+    <category name="General">
+      <block type="controls_if"></block>
+      <!-- <block type="controls_repeat_ext"></block> -->
+      <block type="logic_compare"></block>
+      <block type="math_number"></block>
+      <block type="math_arithmetic"></block>
+    </category>
+
+    <category name="Music" colour="0">
+      <block type="play1"></block>
+      <block type="play"></block>
+      <block type="gauss1"></block>
+      <block type="gauss"></block>
+      <block type="weibul1"></block>
+      <block type="weibul"></block>
+      <block type="randwalk1"></block>
+      <block type="randwalk"></block>
+    </category>
+
+    <category name="Loops" colour="120">
+      <block type="controls_repeat_ext">
+        <value name="TIMES">
+          <shadow type="math_number">
+            <field name="NUM">10</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="controls_whileUntil"></block>
+    </category>
+
+
+    <category name="Variables" colour="330" custom="VARIABLE"></category>
+
+    <category name="Lists" colour="260">
+      <block type="lists_create_with">
+        <mutation items="0"></mutation>
+      </block>
+      <block type="lists_create_with"></block>
+      <block type="lists_length"></block>
+    </category>
+  </xml>
+
+  <xml id="startBlocks" style="display: none">
+    <block type="controls_repeat_ext" x="20" y="20"></block>
+  </xml>
+
+<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+
+    <script src="script.js"></script>
+
+  </body>
+
+</html>
+
