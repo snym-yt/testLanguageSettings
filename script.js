@@ -33,6 +33,105 @@ window.setTimeout(function () {
 
 
 // ==============================================================================
+// ====================== related to language settings ==========================
+// ==============================================================================
+
+
+function closePopup() {
+  console.log('Closing popup');
+  const body = document.querySelector('body');
+  if (body) {
+    body.classList.remove('open_popup');
+  }
+}
+
+
+function setLanguage(lang) {
+  // 言語別のスクリプトのリストを定義
+  const scripts = {
+    ja: [
+      "CodeBlocks/Japanese/blocks/js/play_block.js",
+      "CodeBlocks/Japanese/generators/play.js",
+      "CodeBlocks/Japanese/blocks/js/play_block2.js",
+      "CodeBlocks/Japanese/generators/play2.js",
+      "CodeBlocks/Japanese/blocks/js/gauss_block.js",
+      "CodeBlocks/Japanese/generators/gauss.js",
+      "CodeBlocks/Japanese/blocks/js/gauss_block2.js",
+      "CodeBlocks/Japanese/generators/gauss2.js",
+      "CodeBlocks/Japanese/blocks/js/weibul_block.js",
+      "CodeBlocks/Japanese/generators/weibul.js",
+      "CodeBlocks/Japanese/blocks/js/weibul_block2.js",
+      "CodeBlocks/Japanese/generators/weibul2.js",
+      "CodeBlocks/Japanese/blocks/js/randwalk_block1.js",
+      "CodeBlocks/Japanese/generators/randwalk1.js",
+      "CodeBlocks/Japanese/blocks/js/randwalk_block.js",
+      "CodeBlocks/Japanese/generators/randwalk.js"
+    ],
+    en: [
+      "CodeBlocks/English/blocks/js/play_block.js",
+      "CodeBlocks/English/generators/play.js",
+      "CodeBlocks/English/blocks/js/play_block2.js",
+      "CodeBlocks/English/generators/play2.js",
+      "CodeBlocks/English/blocks/js/gauss_block.js",
+      "CodeBlocks/English/generators/gauss.js",
+      "CodeBlocks/English/blocks/js/gauss_block2.js",
+      "CodeBlocks/English/generators/gauss2.js",
+      "CodeBlocks/English/blocks/js/weibul_block.js",
+      "CodeBlocks/English/generators/weibul.js",
+      "CodeBlocks/English/blocks/js/weibul_block2.js",
+      "CodeBlocks/English/generators/weibul2.js",
+      "CodeBlocks/English/blocks/js/randwalk_block1.js",
+      "CodeBlocks/English/generators/randwalk1.js",
+      "CodeBlocks/English/blocks/js/randwalk_block.js",
+      "CodeBlocks/English/generators/randwalk.js"
+    ]
+  };
+
+  // すでに読み込まれているスクリプトを一旦削除
+  const existingScripts = document.querySelectorAll('script');
+  existingScripts.forEach(script => script.remove());
+
+  // 言語別にスクリプトを読み込む
+  const scriptList = scripts[lang];
+  if (scriptList) {
+    scriptList.forEach(script => {
+      const scriptElement = document.createElement('script');
+      scriptElement.src = script;
+      document.body.appendChild(scriptElement);
+    });
+  }
+}
+
+
+
+$(function(){
+	// クッキーをセットする
+	function setSiteviewCookie() {
+		$('.l-lang a').bind('click', function() {	//言語切り替えボタンを押下したときに発火
+			$.cookie('siteview', $(this).data('siteview'), { path: '/' }); //siteviewという名前でcookieに値をセット
+		});
+	}
+	setSiteviewCookie();
+
+	// 日本語 or 英語を選んだ場合の処理
+	if($.cookie('siteview') == 'en') {
+		//英語が選択されている場合(coockieの値にenが設定されている時)
+		$('.en').css('display', 'block'); //英語を表示
+		$('.jp').css('display', 'none');	//日本語を非表示
+		$('.l-lang .l-lang__en').addClass('is-active');	//言語切り替えボタンにクラスを振る処理
+		$('.l-lang .l-lang__jp').removeClass('is-active');
+	} else {
+		//日本語が選択されている場合
+		$('.jp').css('display', 'block'); //日本語を表示
+		$('.en').css('display', 'none');	//英語を非表示
+		$('.l-lang .l-lang__jp').addClass('is-active');
+		$('.l-lang .l-lang__en').removeClass('is-active');
+	}
+})
+
+
+
+// ==============================================================================
 // ======================== translate JS into PMusic ============================
 // ==============================================================================
 
@@ -103,77 +202,6 @@ function getHtml(selector) {
   markdown_text = markdown_text.replace(/&amp;/g, "&");
 
   return markdown_text;
-}
-
-
-// ==============================================================================
-// ====================== related to language settings ==========================
-// ==============================================================================
-
-
-function closePopup() {
-  console.log('Closing popup');
-  const body = document.querySelector('body');
-  if (body) {
-    body.classList.remove('open_popup');
-  }
-}
-
-
-function setLanguage(lang) {
-  // 言語別のスクリプトのリストを定義
-  const scripts = {
-    ja: [
-      "CodeBlocks/Japanese/blocks/js/play_block.js",
-      "CodeBlocks/Japanese/generators/play.js",
-      "CodeBlocks/Japanese/blocks/js/play_block2.js",
-      "CodeBlocks/Japanese/generators/play2.js",
-      "CodeBlocks/Japanese/blocks/js/gauss_block.js",
-      "CodeBlocks/Japanese/generators/gauss.js",
-      "CodeBlocks/Japanese/blocks/js/gauss_block2.js",
-      "CodeBlocks/Japanese/generators/gauss2.js",
-      "CodeBlocks/Japanese/blocks/js/weibul_block.js",
-      "CodeBlocks/Japanese/generators/weibul.js",
-      "CodeBlocks/Japanese/blocks/js/weibul_block2.js",
-      "CodeBlocks/Japanese/generators/weibul2.js",
-      "CodeBlocks/Japanese/blocks/js/randwalk_block1.js",
-      "CodeBlocks/Japanese/generators/randwalk1.js",
-      "CodeBlocks/Japanese/blocks/js/randwalk_block.js",
-      "CodeBlocks/Japanese/generators/randwalk.js"
-    ],
-    en: [
-      "CodeBlocks/English/blocks/js/play_block.js",
-      "CodeBlocks/English/generators/play.js",
-      "CodeBlocks/English/blocks/js/play_block2.js",
-      "CodeBlocks/English/generators/play2.js",
-      "CodeBlocks/English/blocks/js/gauss_block.js",
-      "CodeBlocks/English/generators/gauss.js",
-      "CodeBlocks/English/blocks/js/gauss_block2.js",
-      "CodeBlocks/English/generators/gauss2.js",
-      "CodeBlocks/English/blocks/js/weibul_block.js",
-      "CodeBlocks/English/generators/weibul.js",
-      "CodeBlocks/English/blocks/js/weibul_block2.js",
-      "CodeBlocks/English/generators/weibul2.js",
-      "CodeBlocks/English/blocks/js/randwalk_block1.js",
-      "CodeBlocks/English/generators/randwalk1.js",
-      "CodeBlocks/English/blocks/js/randwalk_block.js",
-      "CodeBlocks/English/generators/randwalk.js"
-    ]
-  };
-
-  // すでに読み込まれているスクリプトを一旦削除
-  const existingScripts = document.querySelectorAll('script');
-  existingScripts.forEach(script => script.remove());
-
-  // 言語別にスクリプトを読み込む
-  const scriptList = scripts[lang];
-  if (scriptList) {
-    scriptList.forEach(script => {
-      const scriptElement = document.createElement('script');
-      scriptElement.src = script;
-      document.body.appendChild(scriptElement);
-    });
-  }
 }
 
 

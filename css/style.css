@@ -290,3 +290,23 @@ textarea {
     min-height: 100px; /* 高さの最小値を指定（任意） */
     width: 100%;
 }
+
+/* ＝================================= */
+/* 言語切り替えテスト */
+/* ＝================================= */
+
+.p-main {
+    &__list {
+        display: inline-block;
+        margin-top: 32px;
+    }
+}
+.l-lang {
+    /* position: fixed;
+    top: 10%;
+    left: 10%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}

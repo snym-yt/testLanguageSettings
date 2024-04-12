@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja">  <!-
 
   <head>
     <title>PMusic</title>
@@ -10,12 +10,13 @@
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="node_modules/@blockly/field-slider/dist/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
   </head>
 
   <body>
 
   <!-- 言語選択ポップアップ -->
-  <div class="bg_onetime_popup" id="languagePopup">
+  <!-- <div class="bg_onetime_popup" id="languagePopup">
     <div class="onetime_popup">
       <div class="onetime_popup_title">
         <span class="onetime_popup_title_close" id="popupCloseButton"></span>
@@ -26,7 +27,7 @@
         <button class="languageButton" onclick="setLanguage('en'); closePopup();">English</button>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <script>
     window.addEventListener('load', function () {
@@ -61,7 +62,26 @@
         </div>
       </div>
       
-      <button class="btn_code" id="Save" onclick="saveBlocks();">Save</button> <button class="btn_code" id="Load" onclick="loadBlocks();">Load</button> 
+      <div class="jp">
+        <button class="btn_code" id="Save" onclick="saveBlocks();">保存</button> <button class="btn_code" id="Load" onclick="loadBlocks();">呼出し</button> 
+      </div>
+      <div class="en">
+        <button class="btn_code" id="SaveEN" onclick="saveBlocks();">Save</button> <button class="btn_code" id="LoadEN" onclick="loadBlocks();">Load</button> 
+      </div>
+      <div class="p-main">
+        <div class="p-main__para">
+            <p class="jp">日本語</p>
+            <p class="en">English</p>
+            <p>
+              <div class="l-lang">
+                <a data-siteview="jp" class="l-lang__jp" href="./index.html">jp</a>
+                <a data-siteview="en" class="l-lang__en" href="./index.html">en</a>
+              </div>
+            </p>
+        </div>
+      </div>
+
+
     </div>
     <!-- ブロック配置欄 -->
     <div id="blocklyDiv" style="height: 650px; width: 1150px; padding: 5px"></div>
