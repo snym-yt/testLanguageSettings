@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ja">  <!-
+<html lang="ja">
+
 
   <head>
     <title>PMusic</title>
@@ -11,23 +12,47 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="node_modules/@blockly/field-slider/dist/index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+    <div class="jp">
+      <script src="CodeBlocks/Japanese/blocks/js/play_block.js"></script>
+      <script src="CodeBlocks/Japanese/generators/play.js"></script>
+      <script src="CodeBlocks/Japanese/blocks/js/play_block2.js"></script>
+      <script src="CodeBlocks/Japanese/generators/play2.js"></script>
+      <script src="CodeBlocks/Japanese/blocks/js/gauss_block.js"></script>
+      <script src="CodeBlocks/Japanese/generators/gauss.js"></script>
+      <script src="CodeBlocks/Japanese/blocks/js/gauss_block2.js"></script>
+      <script src="CodeBlocks/Japanese/generators/gauss2.js"></script>
+      <script src="CodeBlocks/Japanese/blocks/js/weibul_block.js"></script>
+      <script src="CodeBlocks/Japanese/generators/weibul.js"></script>
+      <script src="CodeBlocks/Japanese/blocks/js/weibul_block2.js"></script>
+      <script src="CodeBlocks/Japanese/generators/weibul2.js"></script>
+      <script src="CodeBlocks/Japanese/blocks/js/randwalk_block1.js"></script>
+      <script src="CodeBlocks/Japanese/generators/randwalk1.js"></script>
+      <script src="CodeBlocks/Japanese/blocks/js/randwalk_block.js"></script>
+      <script src="CodeBlocks/Japanese/generators/randwalk.js"></script>
+    </div>
+
+    <div class="en">
+      <script src="CodeBlocks/English/blocks/js/play_block.js"></script>
+      <script src="CodeBlocks/English/generators/play.js"></script>
+      <script src="CodeBlocks/English/blocks/js/play_block2.js"></script>
+      <script src="CodeBlocks/English/generators/play2.js"></script>
+      <script src="CodeBlocks/English/blocks/js/gauss_block.js"></script>
+      <script src="CodeBlocks/English/generators/gauss.js"></script>
+      <script src="CodeBlocks/English/blocks/js/gauss_block2.js"></script>
+      <script src="CodeBlocks/English/generators/gauss2.js"></script>
+      <script src="CodeBlocks/English/blocks/js/weibul_block.js"></script>
+      <script src="CodeBlocks/English/generators/weibul.js"></script>
+      <script src="CodeBlocks/English/blocks/js/weibul_block2.js"></script>
+      <script src="CodeBlocks/English/generators/weibul2.js"></script>
+      <script src="CodeBlocks/English/blocks/js/randwalk_block1.js"></script>
+      <script src="CodeBlocks/English/generators/randwalk1.js"></script>
+      <script src="CodeBlocks/English/blocks/js/randwalk_block.js"></script>
+      <script src="CodeBlocks/English/generators/randwalk.js"></script>
+    </div>
   </head>
 
   <body>
-
-  <!-- 言語選択ポップアップ -->
-  <!-- <div class="bg_onetime_popup" id="languagePopup">
-    <div class="onetime_popup">
-      <div class="onetime_popup_title">
-        <span class="onetime_popup_title_close" id="popupCloseButton"></span>
-        <span>言語選択 (Choose Language)</span>
-      </div>
-      <div class="onetime_popup_content">
-        <button class="languageButton" onclick="setLanguage('ja'); closePopup();">日本語</button>
-        <button class="languageButton" onclick="setLanguage('en'); closePopup();">English</button>
-      </div>
-    </div>
-  </div> -->
 
   <script>
     window.addEventListener('load', function () {
@@ -144,7 +169,7 @@
     <block type="controls_repeat_ext" x="20" y="20"></block>
   </xml>
 
-<!-- ------------------------------------------------------------------------------------------------------------------------------ -->
+  <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
 
     <script src="script.js"></script>
 

@@ -46,61 +46,6 @@ function closePopup() {
 }
 
 
-function setLanguage(lang) {
-  // 言語別のスクリプトのリストを定義
-  const scripts = {
-    ja: [
-      "CodeBlocks/Japanese/blocks/js/play_block.js",
-      "CodeBlocks/Japanese/generators/play.js",
-      "CodeBlocks/Japanese/blocks/js/play_block2.js",
-      "CodeBlocks/Japanese/generators/play2.js",
-      "CodeBlocks/Japanese/blocks/js/gauss_block.js",
-      "CodeBlocks/Japanese/generators/gauss.js",
-      "CodeBlocks/Japanese/blocks/js/gauss_block2.js",
-      "CodeBlocks/Japanese/generators/gauss2.js",
-      "CodeBlocks/Japanese/blocks/js/weibul_block.js",
-      "CodeBlocks/Japanese/generators/weibul.js",
-      "CodeBlocks/Japanese/blocks/js/weibul_block2.js",
-      "CodeBlocks/Japanese/generators/weibul2.js",
-      "CodeBlocks/Japanese/blocks/js/randwalk_block1.js",
-      "CodeBlocks/Japanese/generators/randwalk1.js",
-      "CodeBlocks/Japanese/blocks/js/randwalk_block.js",
-      "CodeBlocks/Japanese/generators/randwalk.js"
-    ],
-    en: [
-      "CodeBlocks/English/blocks/js/play_block.js",
-      "CodeBlocks/English/generators/play.js",
-      "CodeBlocks/English/blocks/js/play_block2.js",
-      "CodeBlocks/English/generators/play2.js",
-      "CodeBlocks/English/blocks/js/gauss_block.js",
-      "CodeBlocks/English/generators/gauss.js",
-      "CodeBlocks/English/blocks/js/gauss_block2.js",
-      "CodeBlocks/English/generators/gauss2.js",
-      "CodeBlocks/English/blocks/js/weibul_block.js",
-      "CodeBlocks/English/generators/weibul.js",
-      "CodeBlocks/English/blocks/js/weibul_block2.js",
-      "CodeBlocks/English/generators/weibul2.js",
-      "CodeBlocks/English/blocks/js/randwalk_block1.js",
-      "CodeBlocks/English/generators/randwalk1.js",
-      "CodeBlocks/English/blocks/js/randwalk_block.js",
-      "CodeBlocks/English/generators/randwalk.js"
-    ]
-  };
-
-  // すでに読み込まれているスクリプトを一旦削除
-  const existingScripts = document.querySelectorAll('script');
-  existingScripts.forEach(script => script.remove());
-
-  // 言語別にスクリプトを読み込む
-  const scriptList = scripts[lang];
-  if (scriptList) {
-    scriptList.forEach(script => {
-      const scriptElement = document.createElement('script');
-      scriptElement.src = script;
-      document.body.appendChild(scriptElement);
-    });
-  }
-}
 
 
 
