@@ -66,7 +66,7 @@ function setEnglish() {
   };
 
   // 言語別にスクリプトを読み込む
-  const scriptList = scripts[en];
+  const scriptList = scripts["en"];
   if (scriptList) {
     scriptList.forEach(script => {
       const scriptElement = document.createElement('script');
