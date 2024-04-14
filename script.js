@@ -2,14 +2,6 @@
 // ================================== on Load ===================================
 // ==============================================================================
 
-window.onload = onLoad;
-
-function onLoad(){
-  console.log("onLoad");
-}
-
-
-
 var KEY = 'BlocklyStorage';
 
 var workspace = Blockly.inject('blocklyDiv', {

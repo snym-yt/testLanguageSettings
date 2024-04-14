@@ -295,20 +295,23 @@ textarea {
 /* 言語切り替えテスト */
 /* ＝================================= */
 
-.p-main {
-    &__list {
-        display: inline-block;
-        margin-top: 32px;
-    }
+.btn_code_lang {
+	display: inline-block;
+	text-decoration: none;
+	width: 70px;
+    height: 30px;
+	padding: 0.5rem rem;
+    margin-bottom: 1px;
+	font-weight: bold;
+	border-radius: 0.3rem;
+	border-bottom: 2px solid #6d8346;
+	background: #a6c78e;
+	color: #fafafa;
 }
-.l-lang {
-    /* position: fixed;
-    top: 10%;
-    left: 10%; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 24px;
+.btn_code:hover {
+	margin-top: 5px;
+	border-bottom: 1px solid #6d8346;
+	color: #fff;
 }
 
 a,a:hover,a:visited{

@@ -38,6 +38,12 @@
 
   <div id="content" style="display:flex;">
     <div>
+      <button class="btn_code_lang">
+        <a data-siteview="jp" href="./index.html">日本語</a>
+      </button>
+      <button class="btn_code_lang" onclick="setEnglish();">
+        <a data-siteview="en">English</a>
+      </button>
       <!-- 2タブ構成 -->
       <div class="tab-wrap">
         <input id="TAB-01" type="radio" name="TAB" class="tab-switch" checked="checked" /><label class="tab-label" for="TAB-01">block result</label>
@@ -59,22 +65,6 @@
       </div>
       <div class="en">
         <button class="btn_code" id="SaveEN" onclick="saveBlocks();">Save</button> <button class="btn_code" id="LoadEN" onclick="loadBlocks();">Load</button> 
-      </div>
-      <div class="p-main">
-        <div class="p-main__para">
-            <p class="jp">日本語</p>
-            <p class="en">English</p>
-            <p>
-              <div class="l-lang">
-                <button class="btn_code">
-                  <a data-siteview="jp" class="l-lang__jp" href="./index.html">日本語</a>
-                </button>
-                <button class="btn_code" onclick="setEnglish();">
-                  <a data-siteview="en" class="l-lang__en">English</a>
-                </button>
-              </div>
-            </p>
-        </div>
       </div>
 
 
