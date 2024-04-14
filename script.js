@@ -35,13 +35,6 @@ window.setTimeout(function () {
 // ====================== related to language settings ==========================
 // ==============================================================================
 
-function removeScript(){
-  console.log("remove script")
-    // すでに読み込まれているスクリプトを一旦削除
-    const existingScripts = document.querySelectorAll('script');
-    existingScripts.forEach(script => script.remove());
-}
-
 function setEnglish() {
   console.log("set English.")
   const scripts = {
