@@ -5,7 +5,6 @@
 window.onload = onLoad;
 
 function onLoad(){
-  setLanguage('ja');
   console.log("onLoad");
 }
 
@@ -36,17 +35,46 @@ window.setTimeout(function () {
 // ====================== related to language settings ==========================
 // ==============================================================================
 
-
-function closePopup() {
-  console.log('Closing popup');
-  const body = document.querySelector('body');
-  if (body) {
-    body.classList.remove('open_popup');
-  }
+function removeScript(){
+  console.log("remove script")
+    // すでに読み込まれているスクリプトを一旦削除
+    const existingScripts = document.querySelectorAll('script');
+    existingScripts.forEach(script => script.remove());
 }
 
+function setEnglish() {
+  console.log("set English.")
+  const scripts = {
+    en: [
+      "CodeBlocks/English/blocks/js/play_block.js",
+      "CodeBlocks/English/generators/play.js",
+      "CodeBlocks/English/blocks/js/play_block2.js",
+      "CodeBlocks/English/generators/play2.js",
+      "CodeBlocks/English/blocks/js/gauss_block.js",
+      "CodeBlocks/English/generators/gauss.js",
+      "CodeBlocks/English/blocks/js/gauss_block2.js",
+      "CodeBlocks/English/generators/gauss2.js",
+      "CodeBlocks/English/blocks/js/weibul_block.js",
+      "CodeBlocks/English/generators/weibul.js",
+      "CodeBlocks/English/blocks/js/weibul_block2.js",
+      "CodeBlocks/English/generators/weibul2.js",
+      "CodeBlocks/English/blocks/js/randwalk_block1.js",
+      "CodeBlocks/English/generators/randwalk1.js",
+      "CodeBlocks/English/blocks/js/randwalk_block.js",
+      "CodeBlocks/English/generators/randwalk.js"
+    ]
+  };
 
-
+  // 言語別にスクリプトを読み込む
+  const scriptList = scripts[en];
+  if (scriptList) {
+    scriptList.forEach(script => {
+      const scriptElement = document.createElement('script');
+      scriptElement.src = script;
+      document.body.appendChild(scriptElement);
+    });
+  }
+}
 
 
 $(function(){
@@ -118,35 +146,6 @@ function loadBlocks(){
     var xml = Blockly.Xml.textToDom(myBlockXml);
     workspace.clear();
     Blockly.Xml.domToWorkspace(xml, workspace);  
-}
-
-
-// ==============================================================================
-// =========================== related to markdown ==============================
-// ==============================================================================
-
-// マークダウンの基本設定
-const markdown_setting = window.markdownit({
-  html: true, // htmlタグを有効にする
-  breaks: true, // md内の改行を<br>に変換
-});
-
-const markdown_editer = $(".js-markdown-editer");
-
-// マークダウンの設定をjs-markdown-editerにHTMLとして反映させる
-const markdown_html = markdown_setting.render(getHtml(markdown_editer));
-markdown_editer.html(markdown_html);
-  
-// 比較演算子（=，<>，<，<=，>，>=）をそのまま置換する
-function getHtml(selector) {
-  // $(selector)で取得した要素が存在しない場合、空の文字列を返す
-  let markdown_text = $(selector).html() || '';
-  // let markdown_text = document.querySelectorAll(selector)[1].innerHTML;
-  markdown_text = markdown_text.replace(/&lt;/g, "<");
-  markdown_text = markdown_text.replace(/&gt;/g, ">");
-  markdown_text = markdown_text.replace(/&amp;/g, "&");
-
-  return markdown_text;
 }
 
 

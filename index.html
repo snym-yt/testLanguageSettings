@@ -32,7 +32,7 @@
       <script src="CodeBlocks/Japanese/generators/randwalk.js"></script>
     </div>
 
-    <div class="en">
+    <!-- <div class="en">
       <script src="CodeBlocks/English/blocks/js/play_block.js"></script>
       <script src="CodeBlocks/English/generators/play.js"></script>
       <script src="CodeBlocks/English/blocks/js/play_block2.js"></script>
@@ -49,23 +49,11 @@
       <script src="CodeBlocks/English/generators/randwalk1.js"></script>
       <script src="CodeBlocks/English/blocks/js/randwalk_block.js"></script>
       <script src="CodeBlocks/English/generators/randwalk.js"></script>
-    </div>
+    </div> -->
   </head>
 
   <body>
 
-  <script>
-    window.addEventListener('load', function () {
-      const body = document.querySelector('body');
-      const languagePopup = document.getElementById('languagePopup');
-      body.classList.add('open_popup');
-      // ポップアップ内のクリックイベント伝播を防ぐ
-      languagePopup.querySelector('.onetime_popup').addEventListener('click', function (e) {
-        e.stopPropagation();
-        console.log('Popup clicked');
-      });
-    }, false);
-  </script>
   
 
 
@@ -99,8 +87,8 @@
             <p class="en">English</p>
             <p>
               <div class="l-lang">
-                <a data-siteview="jp" class="l-lang__jp" href="./index.html">jp</a>
-                <a data-siteview="en" class="l-lang__en" href="./index.html">en</a>
+                <a data-siteview="jp" class="l-lang__jp" onclick="removeScript();" href="./index.html">jp</a>
+                <a data-siteview="en" class="l-lang__en" onclick="setEnglish();" href="./index.html">en</a>
               </div>
             </p>
         </div>
@@ -125,7 +113,6 @@
   <xml id="toolbox" style="display: none">
     <category name="General">
       <block type="controls_if"></block>
-      <!-- <block type="controls_repeat_ext"></block> -->
       <block type="logic_compare"></block>
       <block type="math_number"></block>
       <block type="math_arithmetic"></block>
