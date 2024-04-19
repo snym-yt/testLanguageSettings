@@ -157,4 +157,12 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// ==============================================================================
+// ============================ script -> XML ===================================
+// ==============================================================================
 
+function makeAST(){
+  var scriptdata = document.getElementById("codeEditor").value;
+  console.log(scriptdata);
+  return;
+}
