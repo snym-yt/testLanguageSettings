@@ -162,7 +162,7 @@ window.addEventListener("DOMContentLoaded", () => {
 // ==============================================================================
 
 function makeAST(){
-  var scriptdata = document.getElementById("codeEditor").value;
+  var scriptdata = document.getElementById("codeInput").value;
   console.log(scriptdata);
   return;
 }
