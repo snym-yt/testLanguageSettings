@@ -32,7 +32,13 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
     <script src="./jquery-linedtextarea-master/jquery-linedtextarea.js"></script>
-    <link href="./jquery-linedtextarea-master/jquery-linedtextarea.css" type="text/css" rel="stylesheet" />
+    <link href="./jquery-linedtextarea-master/jquery-linedtextarea.css" type="text/css" rel="stylesheet"/>
+
+    <script src="./JSPMusic/JSast.js"></script>
+    <script src="./JSPMusic/JSlexer.js"></script>
+    <script src="./JSPMusic/JSparser.js"></script>
+    <script src="./JSPMusic/JStoken.js"></script>
+    <script src="./ASTtoXML.js"></script>
 
   </head>
 
@@ -69,7 +75,7 @@
       </div>
       
       <div class="jp">
-        <button class="btn_code" id="Save" onclick="saveBlocks();">保存</button> <button class="btn_code" id="Load" onclick="loadBlocks();">呼出し</button> 
+        <button class="btn_code" id="Save" onclick="saveBlocks();">保存</button> <button class="btn_code" id="Load" onclick="loadBlocks();">呼出し</button> <button class="btn_code" id="Block" onclick="makeAST();">ブロック化</button>
       </div>
       <div class="en">
         <button class="btn_code" id="SaveEN" onclick="saveBlocks();">Save</button> <button class="btn_code" id="LoadEN" onclick="loadBlocks();">Load</button> 

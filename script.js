@@ -161,8 +161,40 @@ window.addEventListener("DOMContentLoaded", () => {
 // ============================ script -> XML ===================================
 // ==============================================================================
 
+function changeBackSlashIntoSpace(scriptdata){
+  var backslashRegex = /\\/g;
+  scriptdata = scriptdata.replace(backslashRegex, ' ');
+  return scriptdata;
+}
+
+function generateUniqueId(length) {
+  const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*(){}[];:,.`|_-/';
+  let id = '';
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * charset.length);
+    id += charset[randomIndex];
+  }
+  return id;
+}
+
+var xml = "";
 function makeAST(){
   var scriptdata = document.getElementById("codeInput").value;
-  console.log(scriptdata);
+  scriptdata = changeBackSlashIntoSpace(scriptdata);
+  // console.log(scriptdata);
+  const l = newLexer(scriptdata);
+  const p = newParser(l);
+  const program = p.parseProgram();
+  checkParserErrors(p);
+
+  console.log(typeof(program));
+  console.log(program);
+
+  const JSONobj = JSON.stringify(program)
+  console.log(typeof(JSONobj));
+  console.log(JSONobj);
+  const JSONparse = JSON.parse(JSONobj)
+  xml = makeXML(JSONparse);
+  console.log(xml);
   return;
 }
