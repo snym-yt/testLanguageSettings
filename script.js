@@ -185,7 +185,6 @@ function makeAST(){
   const l = newLexer(scriptdata);
   const p = newParser(l);
   const program = p.parseProgram();
-  checkParserErrors(p);
 
   console.log(typeof(program));
   console.log(program);

@@ -85,4 +85,4 @@ function lookupIdent(ident) {
     return new TokenType(IDENT);
 }
 
-module.exports = { keywords, TokenType };
+// module.exports = { keywords, TokenType };

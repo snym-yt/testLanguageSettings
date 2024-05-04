@@ -1,4 +1,4 @@
-const { keywords } = require('./JStoken');
+// const { keywords } = require('./JStoken');
 
 class Lexer {
     constructor(input) {
@@ -184,4 +184,4 @@ class Lexer {
 function newLexer(input) {
     return new Lexer(input);
 }
-module.exports = { newLexer };
+// module.exports = { newLexer };
