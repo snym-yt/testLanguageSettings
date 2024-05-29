@@ -177,23 +177,3 @@ function generateUniqueId(length) {
   return id;
 }
 
-var xml = "";
-function makeAST(){
-  var scriptdata = document.getElementById("codeInput").value;
-  scriptdata = changeBackSlashIntoSpace(scriptdata);
-  // console.log(scriptdata);
-  const l = newLexer(scriptdata);
-  const p = newParser(l);
-  const program = p.parseProgram();
-
-  console.log(typeof(program));
-  console.log(program);
-
-  const JSONobj = JSON.stringify(program)
-  console.log(typeof(JSONobj));
-  console.log(JSONobj);
-  const JSONparse = JSON.parse(JSONobj)
-  xml = makeXML(JSONparse);
-  console.log(xml);
-  return;
-}
