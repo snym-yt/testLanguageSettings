@@ -40,6 +40,15 @@ http-server -p 3000
 https://expressjs.com/ja/starter/installing.html
 このサイトに則って`express`をインストールする．
 
+##### browserifyインストール
+```
+npm install -g browserify
+```
+
+```
+browserify script.js -o bundle.js
+```
+
 ## JSのlexer & parser
 JavaScriptで書いたlexer, parserの細かいコミットは次のリポジトリで参照可能．
 
