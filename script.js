@@ -157,25 +157,6 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// ==============================================================================
-// ============================ script -> XML ===================================
-// ==============================================================================
-
-function changeBackSlashIntoSpace(scriptdata){
-  var backslashRegex = /\\/g;
-  scriptdata = scriptdata.replace(backslashRegex, ' ');
-  return scriptdata;
-}
-
-function generateUniqueId(length) {
-  const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*(){}[];:,.`|_-/';
-  let id = '';
-  for (let i = 0; i < length; i++) {
-    const randomIndex = Math.floor(Math.random() * charset.length);
-    id += charset[randomIndex];
-  }
-  return id;
-}
 
 // ==============================================================================
 // ============================== run Go file ===================================
