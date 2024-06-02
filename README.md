@@ -44,7 +44,7 @@ http-server -p 3000
 node server.js
 ```
 
-##### expressインストール
+### expressインストール
 https://expressjs.com/ja/starter/installing.html
 このサイトに則って`express`をインストールする．
 
