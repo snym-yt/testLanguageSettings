@@ -10,7 +10,7 @@
 
 [VisualPMusic説明スライド](https://docs.google.com/presentation/d/e/2PACX-1vT1mbMEAce7wPtNiAS6GiqaizWgwW2jgFR0ZFaZSC2VrczMZ1R3cTQyUSI6W9nwaBuXxxajNl4Gl-xy/pub?start=false&loop=false&delayms=3000&slide=id.g26412e88182_1_0)
 
-## ローカルサーバ
+## ローカルサーバ(外部コマンド不要の場合)
 ##### (1)ローカルサーバのインストール
 最初にsever.jsのhttp-serverモジュールをグローバルにインストールする．
 ターミナルまたはコマンドプロンプトを開き，以下のコマンドを実行する．
@@ -36,18 +36,18 @@ http-server -p 3000
 ローカルサーバは起動したらブラウザで  http://localhost:8080 にアクセスする．
 ローカルサーバが起動している場合はプロジェクトのファイルに直接アクセスせずに指定したポートを使用すること．
 
+## ローカルサーバ(外部コマンド必要の場合)
+##### (1)プロジェクトディレクトリでサーバ起動
+プロジェクトのディレクトリに移動し，以下のコマンドを実行してローカルサーバの起動．
+
+```bash
+node server.js
+```
+
 ##### expressインストール
 https://expressjs.com/ja/starter/installing.html
 このサイトに則って`express`をインストールする．
 
-##### browserifyインストール
-```
-npm install -g browserify
-```
-
-```
-browserify script.js -o bundle.js
-```
 
 ## JSのlexer & parser
 JavaScriptで書いたlexer, parserの細かいコミットは次のリポジトリで参照可能．
