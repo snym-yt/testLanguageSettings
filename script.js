@@ -10,7 +10,6 @@ var workspace = Blockly.inject('blocklyDiv', {
 });
 
 window.setTimeout(function () {
-  console.log("setTimeout");
   if ('localStorage' in window && window.localStorage[KEY]) {
     restoreBlocks();
   } else {
@@ -156,11 +155,3 @@ window.addEventListener("DOMContentLoaded", () => {
     this.style.height = `${this.scrollHeight}px`;
   }
 });
-
-
-// ==============================================================================
-// ============================== run Go file ===================================
-// ==============================================================================
-const { execSync } = require('child_process')
-const stdout = execSync('ls -l sample.txt')
-console.log(`stdout: ${stdout.toString()}`)

@@ -177,13 +177,3 @@ function generateUniqueId(length) {
   }
   return id;
 }
-
-// ==============================================================================
-// ============================== run Go file ===================================
-// ==============================================================================
-const { execSync } = require('child_process')
-const stdout = execSync('ls -l sample.txt')
-console.log(`stdout: ${stdout.toString()}`)
-},{"child_process":2}],2:[function(require,module,exports){
-
-},{}]},{},[1]);
