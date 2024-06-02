@@ -8,8 +8,12 @@ const app = express();
 
 console.log("start running Go file")
 const { execSync } = require('child_process')
-const stdout = execSync('ls')
-console.log(`stdout: ${stdout.toString()}`)
+try {
+    const stdout = execSync('go run write.go');
+    console.log(`stdout: ${stdout.toString()}`);
+} catch (err) {
+    console.error('Error executing command:', err);
+}
 
 // ==============================================================================
 // ============================= read txt file ==================================
@@ -28,6 +32,12 @@ app.get('/docs', (req, res) => {
 });
 
 app.use(express.static('./docs'));
+
+// ==============================================================================
+// ============================= serve static files =============================
+// ==============================================================================
+
+app.use(express.static('.')); // '.'は現在のディレクトリを指します
 
 // ==============================================================================
 // ================================== listen ====================================
