@@ -155,3 +155,29 @@ window.addEventListener("DOMContentLoaded", () => {
     this.style.height = `${this.scrollHeight}px`;
   }
 });
+
+
+document.getElementById('scriptForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // フォームのデフォルトの送信を防ぐ
+
+  const script = document.getElementById('script').value;
+
+  fetch('/submit', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams({
+          script: script
+      })
+  })
+  .then(response => response.text())
+  .then(data => {
+      console.log('Success:', data);
+      // 必要に応じて、成功メッセージを表示したり、他のアクションを実行します
+  })
+  .catch((error) => {
+      console.error('Error:', error);
+      // 必要に応じて、エラーメッセージを表示したり、他のアクションを実行します
+  });
+});
