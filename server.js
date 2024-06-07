@@ -55,7 +55,7 @@ let script = '';
 app.post('/submit', (req, res) => {
     // フォームデータを変数scriptに格納
     script = req.body.script;
-    console.log('Received script:', script);
+    console.log('Received script:\n', script);
     res.send('Script received');
 });
 

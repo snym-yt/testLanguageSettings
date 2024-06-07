@@ -38,9 +38,6 @@
 
   <body>
 
-  
-
-
   <div id="content" style="display:flex;">
     <div>
       <button class="btn_code_lang">
@@ -60,13 +57,17 @@
         <div class="tab-content">
           <!-- スクリプト記述欄 -->
           <div id="codeEditor" class="tabcontent">
-            <textarea class="lined" id="codeInput" style="width: 100%;">
+
+            <form id="scriptForm">
+              <textarea class="lined" name="codeInput" id="codeInput" style="width: 100%;">
 loop(10){\
   play(60, 0.1);\
   play(0, 0.0);\
   play(0, 0.0);\
 }            
-            </textarea>
+              </textarea>
+              <button type="button" onclick="handleSubmit(event)">Submit</button>
+            </form>
             <script>
               $(function() { $(".lined").linedtextarea();});
             </script>
@@ -75,7 +76,7 @@ loop(10){\
       </div>
       
       <div class="jp">
-        <button class="btn_code" id="Save" onclick="saveBlocks();">保存</button> <button class="btn_code" id="Load" onclick="loadBlocks();">呼出し</button>
+        <button class="btn_code" id="Save" onclick="saveBlocks();">保存</button> <button class="btn_code" id="Load" onclick="loadBlocks();">呼出し</button> <button class="btn_code" type="button" onclick="handleSubmit(event)">Submit</button>
       </div>
       <div class="en">
         <button class="btn_code" id="SaveEN" onclick="saveBlocks();">Save</button> <button class="btn_code" id="LoadEN" onclick="loadBlocks();">Load</button> 
@@ -83,11 +84,6 @@ loop(10){\
       <button class="btn_code" id="readtext" onclick="makeAST();">textareaの内容を取得して標準出力</button> 
       <button class="btn_code" id="writetext" onclick="makeAST();">write.goをブラウザ上で実行</button> 
 
-      <form id="scriptForm">
-        <textarea name="script" id="script" rows="10" cols="50"></textarea>
-        <br>
-        <button type="submit">Submit</button>
-      </form>
 
 
     </div>
@@ -137,14 +133,6 @@ loop(10){\
 
 
     <category name="Variables" colour="330" custom="VARIABLE"></category>
-
-    <category name="Lists" colour="260">
-      <block type="lists_create_with">
-        <mutation items="0"></mutation>
-      </block>
-      <block type="lists_create_with"></block>
-      <block type="lists_length"></block>
-    </category>
   </xml>
 
   <xml id="startBlocks" style="display: none">
@@ -154,7 +142,6 @@ loop(10){\
   <!-- ------------------------------------------------------------------------------------------------------------------------------ -->
 
     <script src="script.js"></script>
-    <!-- <script src="bundle.js"></script> -->
 
   </body>
 

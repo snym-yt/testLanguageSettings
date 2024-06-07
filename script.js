@@ -157,10 +157,18 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 
-document.getElementById('scriptForm').addEventListener('submit', function(event) {
+document.getElementById('scriptForm').removeEventListener('submit', function(event) {
   event.preventDefault(); // フォームのデフォルトの送信を防ぐ
+});
 
-  const script = document.getElementById('script').value;
+
+function handleSubmit(event) {
+  // イベントオブジェクトが存在する場合にのみ preventDefault を呼び出す
+  if (event) {
+    event.preventDefault();
+  }
+
+  const script = document.getElementById('codeInput').value;
 
   fetch('/submit', {
       method: 'POST',
@@ -180,4 +188,5 @@ document.getElementById('scriptForm').addEventListener('submit', function(event)
       console.error('Error:', error);
       // 必要に応じて、エラーメッセージを表示したり、他のアクションを実行します
   });
-});
+}
+
